@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-multipart
+sqlalchemy
+langchain
+pymupdf
+# openai
+llama-index
+aiofiles
+llama-index-llms-ollama

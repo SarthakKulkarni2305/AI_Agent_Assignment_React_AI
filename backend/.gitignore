@@ -1,0 +1,12 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# DB file (optional, if it's generated at runtime)
+pdfs.db
+
+# VSCode or other IDE config (optional)
+.vscode/
