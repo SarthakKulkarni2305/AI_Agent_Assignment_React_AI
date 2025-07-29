@@ -1,5 +1,5 @@
 from llama_index.core import (
-    SimpleDirectoryReader,
+    SimpleDirectoryReader, # use Llama Parse for other structured or unstructured data
     VectorStoreIndex,
     Settings,
     StorageContext,
@@ -34,6 +34,7 @@ def build_index_and_ask_question(text, question):
 
     try:
         if text_hash != CURRENT_HASH:
+            print("new file")
             CURRENT_HASH = text_hash
 
             with tempfile.NamedTemporaryFile(delete=False, suffix=".txt", mode="w", encoding="utf-8") as f:
@@ -56,6 +57,7 @@ def build_index_and_ask_question(text, question):
             INDEX_CACHE[text_hash] = index
             os.remove(temp_path)
         else:
+            print("old file")
             index = INDEX_CACHE[text_hash]
 
         query_engine = index.as_query_engine(response_mode="compact")

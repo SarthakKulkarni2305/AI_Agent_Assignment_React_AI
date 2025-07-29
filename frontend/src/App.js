@@ -18,9 +18,9 @@ function App() {
     <div className="app-container">
       <div className="header">
         <div className="logo-wrapper">
-          <img src="/logo192.png" alt="Logo" className="logo" />
+          <img src="/ai_planet_logo.png" alt="Logo" className="logo" />
           <div className="title-group">
-            <h2 className="title">ai planet</h2>
+            <h2 className="title">planet</h2>
             <span className="subtitle">formerly DPhi</span>
           </div>
         </div>

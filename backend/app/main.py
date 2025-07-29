@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.database import SessionLocal, Document
 from app.qa_engine import build_index_and_ask_question
+from app.pdf_utils import extract_text_from_pdf
 
 app = FastAPI()
 
@@ -35,7 +36,13 @@ async def upload_pdf(file: UploadFile = File(...)):
     db.add(db_doc)
     db.commit()
     db.close()
-    return {"filename": unique_filename}
+
+    extracted_text = extract_text_from_pdf(file_path)
+
+    return {
+        "filename": unique_filename,
+        "text": extracted_text
+    }
 
 @app.post("/ask/")
 async def ask_question(data: AskRequest):
